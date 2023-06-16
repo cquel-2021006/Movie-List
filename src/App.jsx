@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import {BuscadorPeliculas} from './components/BuscadorPeliculas'
-import {ListaPeliculas} from './components/ListaPeliculas'
+import { BuscadorPeliculas } from './components/BuscadorPeliculas'
+import { ListaPeliculas } from './components/ListaPeliculas'
 import { buscarPeliculas, obtenerDetallesPelicula } from "./Api/apiPelicula"
 
 
@@ -34,14 +34,18 @@ export const App = () => {
       <div className="container">
         <h1 style={{ textAlign: "center", color: "white" }}>Movie List</h1>
 
-        <BuscadorPeliculas onBuscar={handleBuscarPeliculas}/>
+        <BuscadorPeliculas onBuscar={handleBuscarPeliculas} />
         <br />
-        {peliculas.length > 0 && (
-          <ListaPeliculas
-            peliculas={peliculas}
-            onPeliculaSeleccionada={handlePeliculaSelect}
-          />
-        )}
+        
+          {peliculas.length > 0 && (
+            <ListaPeliculas
+              peliculas={peliculas}
+              onPeliculaSeleccionada={handlePeliculaSelect}
+            />
+          )}
+
+
+
         {peliculaSelect && (
           <div>
             <h2>Detalles de la Pelicula</h2>
@@ -52,7 +56,7 @@ export const App = () => {
             <br />
           </div>
         )}
-          
+
       </div>
 
     </>
