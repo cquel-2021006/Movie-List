@@ -36,27 +36,38 @@ export const App = () => {
 
         <BuscadorPeliculas onBuscar={handleBuscarPeliculas} />
         <br />
-        
-          {peliculas.length > 0 && (
-            <ListaPeliculas
-              peliculas={peliculas}
-              onPeliculaSeleccionada={handlePeliculaSelect}
-            />
-          )}
 
-
-
-        {peliculaSelect && (
-          <div>
-            <h2>Detalles de la Pelicula</h2>
-            <p>Titulo: {peliculaSelect.Title}</p>
-            <p>año de Estreno: {peliculaSelect.Year}</p>
-            <p>Director: {peliculaSelect.Director}</p>
-            <p>Descripcion: {peliculaSelect.Plot}</p>
-            <br />
-          </div>
+        {peliculas.length > 0 && (
+          <ListaPeliculas
+            peliculas={peliculas}
+            onPeliculaSeleccionada={handlePeliculaSelect}
+          />
         )}
 
+        <br />
+
+        <div>
+          {peliculaSelect && (
+            <div className="card">
+              <div className="row no-gutters">
+                <div className="col-4">
+                  <img src={peliculaSelect.Poster} alt={peliculaSelect.Title} className="card-img" />
+                </div>
+                <div className="col-8">
+                  <div className="card-body">
+                    <h2>Detalles de la película</h2>
+                    <h5 className="card-title">{peliculaSelect.Title}</h5>
+                    <p className="card-text">Año de lanzamiento: {peliculaSelect.Year}</p>
+                    <p className="card-text">Director: {peliculaSelect.Director}</p>
+                    <p className="card-text">Descripción: {peliculaSelect.Plot}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <br />
       </div>
 
     </>

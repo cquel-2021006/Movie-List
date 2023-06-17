@@ -18,18 +18,19 @@ export const buscarPeliculas = async (termino) => {
     }
 };
 
-export const obtenerDetallesPelicula = async(id) => {
-    const url = `https://www.omdbapi.com/?s=${id}&apikey=${apiKey}`;
-
+export const obtenerDetallesPelicula = async (id) => {
+    const url = `https://www.omdbapi.com/?i=${id}&apikey=${apiKey}`;
+  
     try {
-        const response = await fetch(url);
-        const data = await response.json();
-        if (data.Response === 'True') {
-            return data;
-        } else {
-            throw new Error(data.Error)
-        }
+      const response = await fetch(url);
+      const data = await response.json();
+  
+      if (data.Response === 'True') {
+        return data;
+      } else {
+        throw new Error(data.Error);
+      }
     } catch (error) {
-        throw new Error('Error a los Detalles');
+      throw new Error('Error al obtener detalles de la película');
     }
-}
+  };

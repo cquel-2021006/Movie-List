@@ -1,13 +1,13 @@
 import React from "react";
 
-export const DetallePelicula = ({ pelicula, onPeliculaSelect }) => {
+export const DetallePelicula = ({ pelicula, onPeliculaSeleccionada }) => {
 
     const handleClick = () => {
-        onPeliculaSelect(pelicula.imbdID);
-    };
+        onPeliculaSeleccionada(pelicula.imdbID);
+      };
+
 
     return (
-        <>
             <div onClick={handleClick} style={{ textAlign: "center", }}>
                 <div className="card">
                     <div className="row no-gutters">
@@ -24,7 +24,5 @@ export const DetallePelicula = ({ pelicula, onPeliculaSelect }) => {
                 </div>
             </div>
 
-
-        </>
     )
 }
